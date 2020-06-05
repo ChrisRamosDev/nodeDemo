@@ -1,12 +1,12 @@
 document  
-.querySelector(".request-complement")
+.querySelector(".request-insult")
 .addEventListener('click', () => {
-  fetch("/complement")
+  fetch("/insult")
     .then((res) => {
       return res.json();
     })
     .then((data) => {
-      document.querySelector('.complement').innerText = data.complement;
+      document.querySelector('.insult').innerText = data.insult;
     })
     .catch((err) => {
       console.error(err)

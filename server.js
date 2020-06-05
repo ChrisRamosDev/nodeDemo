@@ -13,6 +13,21 @@ const complements = [
   "You've learned a lot of things, and that's pretty hard to do"
 ];
 
+const insults = [
+  "Try harder",
+  "Try again",
+  "You can do better",
+  "No, just no",
+  "This wont turn out well for you",
+  "Just stop",
+  "Stop trying"
+];
+
+const getRandomInsult = () => {
+  const randomIndex = Math.floor(Math.random() * insults.length);
+  return insults[randomIndex];
+}
+
 const getRandomComplement = () => {
   const randomIndex = Math.floor(Math.random() * complements.length);
   return complements[randomIndex];
@@ -28,6 +43,14 @@ app.get('/complement', (req, res) => {
   res
     .json({
       complement: getRandomComplement()
+    })
+    .end();
+});
+
+app.get('/insult', (req, res) => {
+  res
+    .json({
+      insult: getRandomInsult()
     })
     .end();
 });
